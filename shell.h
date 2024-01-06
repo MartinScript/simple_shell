@@ -143,7 +143,7 @@ int _erratoi(char *);
 void print_error(uninfo_t *, char *);
 int print_d(int, int);
 char *convert_number(long int, int, int);
-void remove_comments(char *);
+void delete_comments(char *);
 
 /* exits.c */
 char *_strncpy(char *, char *, int);
@@ -158,7 +158,7 @@ int _setenv(uninfo_t *, char *, char *);
 /* getinfo.c */
 void clear_info(uninfo_t *);
 void set_info(uninfo_t *, char **);
-void free_info(uninfo_t *, int);
+void info_free(uninfo_t *, int);
 
 /*getline.c */
 ssize_t get_input(uninfo_t *);
@@ -177,17 +177,17 @@ lists_t *add_node(lists_t **, const char *, int);
 lists_t *add_node_end(lists_t **, const char *, int);
 size_t print_list_str(const lists_t *);
 int delete_node_at_index(lists_t **, unsigned int);
-void free_list(lists_t **);
+void list_free(lists_t **);
 
 /* lists1.c */
 size_t list_len(const lists_t *);
 char **lists_to_strings(lists_t *);
 size_t print_list(const lists_t *);
 lists_t *node_starts_with(lists_t *, char *, char);
-ssize_t get_node_index(lists_t *, lists_t *);
+ssize_t node_index(lists_t *, lists_t *);
 
 /* memory.c */
-int bfree(void **);
+int mem_free(void **);
 
 /* parser.c */
 int is_cmd(uninfo_t *, char *);
@@ -201,9 +201,9 @@ void *_realloc(void *, unsigned int, unsigned int);
 
 /* shell_loop.c */
 int hsh(uninfo_t *, char **);
-int find_builtins(uninfo_t *);
-void find_cmd(uninfo_t *);
-void fork_cmd(uninfo_t *);
+int builtins_finder(uninfo_t *);
+void cmd_search(uninfo_t *);
+void cmd_fork(uninfo_t *);
 
 /* string.c */
 int _strlen(char *);
@@ -223,10 +223,10 @@ char **strtow2(char *, char);
 
 /* vars.c */
 int is_chain(uninfo_t *, char *, size_t *);
-void check_chain(uninfo_t *, char *, size_t *, size_t, size_t);
-int replace_alias(uninfo_t *);
-int replace_vars(uninfo_t *);
-int replace_string(char **, char *);
+void chain_check(uninfo_t *, char *, size_t *, size_t, size_t);
+int alias_replace(uninfo_t *);
+int vars_replace(uninfo_t *);
+int string_replace(char **, char *);
 
 /* loophsh.c */
 int loophsh(char **);
